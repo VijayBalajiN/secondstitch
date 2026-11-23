@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Track an order — SecondStitch</title>
+  <link rel="icon" href="/favicon.svg">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body data-page="track">
+<header id="site-header"></header>
+
+<main class="section">
+  <div class="wrap">
+    <h1 data-i18n="track.title" data-bi>Track an order</h1>
+    <p class="section-lead" data-i18n="track.lead">Every QR scan updates this page, from the counter to your door.</p>
+    <form class="track-form" id="track-form">
+      <label class="visually-hidden" for="order-id" data-i18n="track.id">Your order number</label>
+      <input type="text" id="order-id" placeholder="SS-XXXXX" maxlength="8" autocomplete="off" required>
+      <button class="btn" type="submit" data-i18n="track.btn">Track</button>
+    </form>
+    <div id="result" aria-live="polite"></div>
+  </div>
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="/i18n.js"></script>
+<script src="/common.js"></script>
+<script src="/layout.js"></script>
+<script src="/track.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script src="/secondstitch/static-api.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ops desk — SecondStitch</title>
+  <link rel="icon" href="/secondstitch/favicon.svg">
+  <link rel="stylesheet" href="/secondstitch/styles.css">
+</head>
+<body data-page="ops" data-force-lang="en">
+<header id="site-header"></header>
+
+<main class="section" style="padding-top:36px">
+  <div class="wrap">
+    <h1 style="font-size:2rem">Orders</h1>
+    <p class="section-lead">Demo of central storage. “Record scan” stands in for scanning a garment's QR tag at each handover; the customer's tracking page updates at once.</p>
+    <div class="ops-bar">
+      <div class="ops-stats" id="stats"></div>
+      <div class="segmented" id="filter" role="radiogroup" aria-label="Filter">
+        <label><input type="radio" name="filter" value="open" checked><span>Open</span></label>
+        <label><input type="radio" name="filter" value="all"><span>All</span></label>
+        <label><input type="radio" name="filter" value="done"><span>Delivered / cancelled</span></label>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table class="ops-table">
+        <thead><tr><th>Order</th><th>Customer</th><th>Job</th><th>Handover</th><th class="num">Total</th><th>Status</th><th>Actions</th></tr></thead>
+        <tbody id="rows"><tr><td colspan="7" class="empty">Loading…</td></tr></tbody>
+      </table>
+    </div>
+  </div>
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="/secondstitch/i18n.js"></script>
+<script src="/secondstitch/common.js"></script>
+<script src="/secondstitch/layout.js"></script>
+<script src="/secondstitch/ops.js"></script>
+</body>
+</html>

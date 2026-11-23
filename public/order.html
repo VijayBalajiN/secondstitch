@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>New order — SecondStitch</title>
+  <link rel="icon" href="/favicon.svg">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body data-page="order">
+<header id="site-header"></header>
+
+<main class="section" style="padding-top:36px">
+  <div class="wrap">
+    <h1 style="font-size:clamp(1.9rem,4vw,2.6rem)" data-i18n="order.title" data-bi>New order</h1>
+    <p class="section-lead" data-i18n="order.lead">The price updates as you go. If it turns out to be a different job when it arrives, we'll send a new price before any work starts.</p>
+
+    <div id="order-area" style="scroll-margin-top:90px">
+      <nav class="tape-steps" id="tape-steps" aria-label="Order steps"></nav>
+      <div class="order-grid">
+        <form id="order-form" novalidate>
+          <fieldset class="step-box" data-step="1">
+            <legend tabindex="-1"><span class="step-no">1</span><span data-i18n="o.s1">What needs fixing?</span></legend>
+            <div id="garments"></div>
+            <button type="button" class="btn btn-ghost btn-small" id="add-garment" data-i18n="o.addgarment">+ Add another garment</button>
+          </fieldset>
+
+          <fieldset class="step-box" data-step="2" hidden>
+            <legend tabindex="-1"><span class="step-no">2</span><span data-i18n="o.s2">Who should do it?</span></legend>
+            <span class="field-label sub" id="tier-q" data-i18n="o.tier.q">Which kind of tailor?</span>
+            <div class="choice-grid" id="tier-choices" role="radiogroup" aria-labelledby="tier-q"></div>
+            <p class="hint" id="tier-hint" hidden></p>
+            <span class="field-label sub" id="speed-q" data-i18n="o.speed.q">How fast?</span>
+            <div class="choice-grid" id="speed-choices" role="radiogroup" aria-labelledby="speed-q"></div>
+            <p class="hint" id="speed-hint" hidden></p>
+          </fieldset>
+
+          <fieldset class="step-box" data-step="3" hidden>
+            <legend tabindex="-1"><span class="step-no">3</span><span data-i18n="o.s3">Drop off or pickup?</span></legend>
+            <div class="choice-grid three" id="handover-choices" role="radiogroup"></div>
+            <div id="handover-detail"></div>
+            <span class="field-label" id="date-label" data-i18n="o.date">Drop-off or pickup day</span>
+            <div class="date-strip" id="date-strip" role="group" aria-labelledby="date-label"></div>
+            <p class="hint" data-i18n="o.date.hint">Mon–Wed costs 10% less. Festival and wedding weekends cost 20% more.</p>
+          </fieldset>
+
+          <fieldset class="step-box" data-step="4" hidden>
+            <legend tabindex="-1"><span class="step-no">4</span><span data-i18n="o.s4">Your name and number</span></legend>
+            <div class="row">
+              <label class="field"><span data-i18n="o.name">Your name</span><input type="text" id="cust-name" autocomplete="name" maxlength="80" required></label>
+              <label class="field"><span data-i18n="o.phone">WhatsApp number</span><input type="tel" id="cust-phone" autocomplete="tel" inputmode="numeric" maxlength="16" required data-i18n-attr="placeholder:o.phoneph"></label>
+            </div>
+            <p class="fine" style="margin:0" data-i18n="o.contactnote">We'll send order updates here.</p>
+          </fieldset>
+
+          <div id="form-errors" class="errors" role="alert"></div>
+          <div class="step-nav">
+            <button type="button" class="btn btn-ghost" id="back-btn" data-i18n="o.back" hidden>Back</button>
+            <button type="button" class="btn" id="next-btn" data-i18n="o.next">Next</button>
+            <button class="btn" type="submit" id="submit-btn" data-i18n="o.place" hidden>Place order</button>
+          </div>
+          <p class="fine" style="margin-top:14px" data-i18n="o.demo">Demo only. No payment is taken.</p>
+        </form>
+
+        <aside class="summary" id="summary" aria-live="polite"></aside>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div class="price-bar" id="price-bar" hidden></div>
+<footer id="site-footer"></footer>
+
+<script src="/i18n.js"></script>
+<script src="/common.js"></script>
+<script src="/layout.js"></script>
+<script src="/order.js"></script>
+</body>
+</html>

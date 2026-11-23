@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script src="/secondstitch/static-api.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SecondStitch — Alterations by a tailor near you</title>
+  <meta name="description" content="A tailor near you fixes it. You see the price first, and it is back in 2–3 days.">
+  <link rel="icon" href="/secondstitch/favicon.svg">
+  <link rel="stylesheet" href="/secondstitch/styles.css">
+</head>
+<body data-page="home">
+<header id="site-header"></header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow" data-i18n="hero.eyebrow">Alterations and repairs · back in 2–3 days</p>
+        <h1 data-i18n="hero.title" data-bi>Measured twice. Mended once.</h1>
+        <p class="lead" data-i18n="hero.lead">A tailor near you fixes it. You see the price first.</p>
+        <div class="hero-actions">
+          <a class="btn" href="/secondstitch/order" data-i18n="hero.cta">Get a price</a>
+          <a class="btn btn-ghost" id="chat-cta" href="/secondstitch/bot" data-i18n="hero.chat">Order by chat</a>
+          <a class="btn btn-ghost" href="/secondstitch/track" data-i18n="hero.track">Track an order</a>
+        </div>
+        <ul class="hero-facts">
+          <li data-i18n-html="hero.fact1"><strong>Price first</strong>, before you order</li>
+          <li data-i18n-html="hero.fact2"><strong>3 quality checks</strong> on every piece</li>
+          <li data-i18n-html="hero.fact3"><strong>Free redo</strong> within 7 days</li>
+        </ul>
+      </div>
+
+      <div class="hero-art">
+        <svg viewBox="0 0 600 440" role="img" aria-labelledby="hero-art-t">
+          <title id="hero-art-t" data-i18n="hero.art">A pair of trousers laid flat with a chalk line, pins, a tape measure and scissors</title>
+          <defs>
+            <pattern id="matgrid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0V28" fill="none" stroke="#d3c5a3" stroke-width="1"/></pattern>
+            <pattern id="tickv" x="96" y="60" width="20" height="30" patternUnits="userSpaceOnUse"><path d="M20 .5H8M20 6.5H14M20 12.5H14M20 18.5H14M20 24.5H14" stroke="#1f2a44" stroke-width="1" fill="none"/></pattern>
+            <pattern id="cut" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 0V8" stroke="#f3ebda" stroke-width="2" opacity=".55"/></pattern>
+          </defs>
+          <rect width="600" height="440" fill="#e9dec4"/>
+          <rect width="600" height="440" fill="url(#matgrid)"/>
+          <rect x="8" y="8" width="584" height="424" rx="6" fill="none" stroke="#c4b48e" stroke-width="1.5" stroke-dasharray="6 5"/>
+
+          <rect x="96" y="60" width="20" height="340" fill="#f3e3a3" stroke="#d4c07a"/>
+          <rect x="96" y="60" width="20" height="340" fill="url(#tickv)"/>
+          <rect x="96" y="60" width="20" height="10" fill="#1f2a44"/>
+
+          <g transform="translate(-20 10)">
+            <path d="M170 40 L330 40 L336 185 L322 360 L258 360 L250 205 L242 360 L178 360 L164 185 Z" fill="#31456f" stroke="#1f2a44" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="M170 40 L330 40 L331 62 L169 62 Z" fill="#26375c" stroke="#1f2a44" stroke-width="2"/>
+            <g fill="#26375c" stroke="#1f2a44" stroke-width="1.5"><rect x="180" y="36" width="7" height="32" rx="1"/><rect x="212" y="36" width="7" height="32" rx="1"/><rect x="281" y="36" width="7" height="32" rx="1"/><rect x="313" y="36" width="7" height="32" rx="1"/></g>
+            <g fill="none" stroke="#d9bd6a" stroke-width="1.6" stroke-dasharray="4 3" stroke-linecap="round">
+              <path d="M250 62 V152 Q250 170 237 167"/>
+              <path d="M176 66 Q198 112 234 106"/><path d="M324 66 Q302 112 266 106"/>
+              <path d="M181 349 H240"/><path d="M260 349 H320"/>
+              <path d="M170 64 H330"/>
+            </g>
+            <circle cx="250" cy="52" r="5" fill="#e8c46a" stroke="#1f2a44" stroke-width="1.5"/>
+
+            <path d="M174 312 L244 312 L242 360 L178 360 Z M256 312 L326 312 L322 360 L258 360 Z" fill="url(#cut)"/>
+            <path d="M174 312 H245 M255 312 H326" stroke="#ffffff" stroke-width="3" stroke-dasharray="8 5" stroke-linecap="round"/>
+            <g stroke="#6b7280" stroke-width="1.8" stroke-linecap="round">
+              <path d="M205 312 L192 294"/><path d="M228 312 L215 294"/><path d="M296 312 L283 294"/>
+            </g>
+            <g fill="#c8442f" stroke="#7d2415" stroke-width="1"><circle cx="192" cy="293" r="3.6"/><circle cx="215" cy="293" r="3.6"/><circle cx="283" cy="293" r="3.6"/></g>
+            <g stroke="#1f2a44" stroke-width="1.8" fill="none" stroke-linecap="round"><path d="M349 312 V360"/><path d="M344 318 L349 312 L354 318"/><path d="M344 354 L349 360 L354 354"/><path d="M343 312 H355 M343 360 H355"/></g>
+            <text x="361" y="342" font-family="Georgia, serif" font-size="17" font-weight="700" fill="#1f2a44">2 in</text>
+          </g>
+
+          <g transform="translate(500 150) rotate(18)">
+            <path d="M-4 4 L4 -4 L-9 -104 L-15 -100 Z" fill="#c4cad6" stroke="#1f2a44" stroke-width="1.6" stroke-linejoin="round"/>
+            <path d="M4 4 L-4 -4 L9 -104 L15 -100 Z" fill="#d7dbe4" stroke="#1f2a44" stroke-width="1.6" stroke-linejoin="round"/>
+            <path d="M0 0 L14 24 M0 0 L-14 24" stroke="#c8442f" stroke-width="6" stroke-linecap="round"/>
+            <ellipse cx="22" cy="40" rx="11" ry="16" transform="rotate(-18 22 40)" fill="none" stroke="#c8442f" stroke-width="6"/>
+            <ellipse cx="-22" cy="40" rx="11" ry="16" transform="rotate(18 -22 40)" fill="none" stroke="#c8442f" stroke-width="6"/>
+            <circle r="4" fill="#1f2a44"/>
+          </g>
+
+          <g stroke="#1f2a44" stroke-width="2" fill="#fbf7ec">
+            <circle cx="404" cy="86" r="16"/><circle cx="440" cy="118" r="16"/><circle cx="398" cy="140" r="16"/>
+          </g>
+          <g fill="none" stroke="#1f2a44" stroke-width="1"><circle cx="404" cy="86" r="10.5"/><circle cx="440" cy="118" r="10.5"/><circle cx="398" cy="140" r="10.5"/></g>
+          <g fill="#1f2a44"><circle cx="400" cy="82" r="1.8"/><circle cx="408" cy="82" r="1.8"/><circle cx="400" cy="90" r="1.8"/><circle cx="408" cy="90" r="1.8"/>
+            <circle cx="436" cy="114" r="1.8"/><circle cx="444" cy="114" r="1.8"/><circle cx="436" cy="122" r="1.8"/><circle cx="444" cy="122" r="1.8"/>
+            <circle cx="394" cy="136" r="1.8"/><circle cx="402" cy="136" r="1.8"/><circle cx="394" cy="144" r="1.8"/><circle cx="402" cy="144" r="1.8"/></g>
+
+          <g transform="translate(396 214)">
+            <rect x="0" y="0" width="46" height="8" rx="2" fill="#d9c9a0" stroke="#1f2a44" stroke-width="1.6"/>
+            <rect x="0" y="48" width="46" height="8" rx="2" fill="#d9c9a0" stroke="#1f2a44" stroke-width="1.6"/>
+            <rect x="5" y="8" width="36" height="40" fill="#c8442f" stroke="#7d2415" stroke-width="1.4"/>
+            <path d="M5 16H41M5 24H41M5 32H41M5 40H41" stroke="#7d2415" stroke-width="1.2"/>
+            <path d="M41 14 C70 4 78 30 60 40" fill="none" stroke="#c8442f" stroke-width="2.4" stroke-linecap="round"/>
+          </g>
+          <g transform="translate(40 156) rotate(-24)"><rect width="40" height="13" rx="2" fill="#ffffff" stroke="#cfc3a3" stroke-width="1.5"/><path d="M30 0V13" stroke="#e5ddc6"/></g>
+        </svg>
+        <div class="ticket" aria-hidden="true">
+          <div class="ticket-top">
+            <div class="label"><span data-i18n="ticket.label">Order details</span><span class="example" data-i18n="ticket.example">Example</span></div>
+            <div class="id">SS-7K2QD</div>
+            <span class="pill" data-i18n="ticket.tier">Standard · Home tailor</span>
+            <div class="line"><span data-i18n="ticket.l1">Trouser hem, plain fold</span><strong>₹120</strong></div>
+            <div class="line"><span data-i18n="ticket.l2">Button (first one) + 1 extra</span><strong>₹50</strong></div>
+            <div class="line"><span data-i18n="ticket.l3">Fit: chalk mark on garment</span><span class="pill ok" data-i18n="ticket.marked">Marked</span></div>
+          </div>
+          <div class="ticket-stub">
+            <div>
+              <div class="mini-track"><i class="done"></i><i class="done"></i><i class="done"></i><i></i><i></i><i></i></div>
+              <div class="fine" data-i18n="ticket.status">With tailor · quality check next</div>
+            </div>
+            <div class="qr" id="hero-qr"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="ruler"></div>
+
+  <section class="section" id="picker">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="picker-title" data-i18n="picker.title" data-bi>Where does it need fixing?</h2>
+        <p class="section-lead" data-i18n="picker.lead">Pick a garment, then tap a pin to see the fixes and prices.</p>
+      </div>
+      <div class="picker">
+        <div>
+          <div class="tabs" role="group" aria-labelledby="picker-title" id="g-tabs"></div>
+          <div class="garment-stage" id="g-stage"></div>
+          <p class="fine" style="margin:8px 4px 0" data-i18n="picker.hint">Tap a pin</p>
+        </div>
+        <div class="spot-panel" id="spot-panel" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt" id="how">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 data-i18n="how.title" data-bi>How it works</h2>
+        <p class="section-lead" data-i18n="how.lead">Every garment gets a QR tag. You get a message at each step.</p>
+      </div>
+      <div class="steps">
+        <div class="step-card">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="12" y="8" width="24" height="32" rx="3"/><path d="M18 8V6h12v2M18 20h12M18 26h12M18 32h7"/><path class="red" d="M18 14h5"/></svg>
+          <h3 data-i18n="how.s1.t" data-bi>Order</h3><p data-i18n="how.s1.p">Pick the fixes and see the price.</p>
+        </div>
+        <div class="step-card">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M11 18h26l-2 22H13z"/><path d="M18 18v-4a6 6 0 0 1 12 0v4"/><path class="red" d="M19 29l4 4 7-8"/></svg>
+          <h3 data-i18n="how.s2.t" data-bi>Hand over</h3><p data-i18n="how.s2.p">Drop it at a dry cleaner near you, or book a pickup.</p>
+        </div>
+        <div class="step-card">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="14" cy="36" r="5"/><circle cx="34" cy="36" r="5"/><path d="M17 32L34 8M31 32L14 8"/><path class="red" d="M5 45c11-5 27-5 38 0"/></svg>
+          <h3 data-i18n="how.s3.t" data-bi>Your tailor</h3><p data-i18n="how.s3.p">A tailor near you does the work.</p>
+        </div>
+        <div class="step-card">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 12h22l10 12-10 12H8z"/><circle cx="14" cy="24" r="2"/><path class="red" d="M22 24l4 4 7-8"/></svg>
+          <h3 data-i18n="how.s4.t" data-bi>Checked and returned</h3><p data-i18n="how.s4.p">We check it twice more before it comes back.</p>
+        </div>
+      </div>
+      <div class="updates">
+        <span class="muted" data-i18n="how.hear">You hear from us at:</span>
+        <span class="pill grey" data-i18n="st.confirmed">Order confirmed</span><span class="pill grey" data-i18n="st.collected">Garment collected</span><span class="pill grey" data-i18n="st.with_tailor">With tailor</span>
+        <span class="pill grey" data-i18n="st.qc_passed">Checked</span><span class="pill grey" data-i18n="st.out_for_delivery">Out for delivery</span><span class="pill grey" data-i18n="how.rating">Delivered and rating</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="prices">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 data-i18n="board.title" data-bi>Price board</h2>
+        <p class="section-lead" data-i18n="board.lead">27 fixes. Prices are for everyday fabric in a normal week. You see the exact total when you order.</p>
+      </div>
+      <div class="board-cols">
+        <div class="board" id="board-quick"></div>
+        <div class="board" id="board-prem"></div>
+      </div>
+      <div class="note-box" data-i18n-html="board.note"></div>
+
+      <div class="section-head" style="margin-top:48px">
+        <h2 data-i18n="tier.title" data-bi>Two kinds of tailor</h2>
+        <p class="section-lead" data-i18n="tier.lead">Standard is for quick fixes. Anything that changes the shape, or goes through a lining, needs a Premium tailor.</p>
+      </div>
+      <div class="tier-grid">
+        <div class="tier-card">
+          <span class="pill" data-i18n="board.standard">Standard</span>
+          <h3 style="margin-top:10px" data-i18n="tier.std.name">Home tailor</h3>
+          <p class="muted" data-i18n="tier.std.p">Home tailors we've tested on sample garments.</p>
+          <ul><li data-i18n="tier.std.l1">Quick fixes: buttons, hems, seams, darns, saree fall</li><li data-i18n="tier.std.l2">Back in 2–3 days</li><li data-i18n="tier.std.l3">₹20 setup + ₹4 per work-minute</li></ul>
+        </div>
+        <div class="tier-card premium">
+          <span class="pill" style="background:var(--tape);color:var(--ink)" data-i18n="board.premium">Premium</span>
+          <h3 style="margin-top:10px" data-i18n="tier.prem.name">Master tailor</h3>
+          <p class="muted" data-i18n="tier.prem.p">Shop tailors who do structural and fit work too.</p>
+          <ul><li data-i18n="tier.prem.l1">Every fix, including zips, resizing and lined garments</li><li data-i18n="tier.prem.l2">Express next day</li><li data-i18n="tier.prem.l3">₹30 setup + ₹7 per work-minute</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt" id="tailors">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 data-i18n="tailors.title" data-bi>Meet your tailors</h2>
+        <p class="section-lead" data-i18n="tailors.lead">Your garment goes to a tailor near you, not a factory line. These are sample profiles.</p>
+      </div>
+      <div class="tailors" id="tailors-grid"></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap promises">
+      <div class="promise"><strong data-i18n="promise.price.t" data-bi>Price first</strong><p data-i18n="promise.price.p">You see the total before you order. It changes only if the job does.</p></div>
+      <div class="promise"><strong data-i18n="promise.checks.t" data-bi>Three checks</strong><p data-i18n="promise.checks.p">Your tailor checks it, then we check it twice more.</p></div>
+      <div class="promise"><strong data-i18n="promise.redo.t" data-bi>Free redo</strong><p data-i18n="promise.redo.p">Not right? We'll redo it free within 7 days. Damaged while with us? We pay for it.</p></div>
+      <div class="promise"><strong data-i18n="promise.updates.t" data-bi>Chat updates</strong><p data-i18n="promise.updates.p">A message on WhatsApp or Telegram at every step.</p></div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="wrap faq">
+      <div class="section-head"><h2 data-i18n="faq.title" data-bi>Questions people ask</h2></div>
+      <details><summary><span data-i18n="faq.q1">How do I know what to ask for?</span></summary><p data-i18n="faq.a1"></p></details>
+      <details><summary><span data-i18n="faq.q2">How is the price decided?</span></summary><p data-i18n="faq.a2"></p></details>
+      <details><summary><span data-i18n="faq.q3">Do I need to be home?</span></summary><p data-i18n="faq.a3"></p></details>
+      <details><summary><span data-i18n="faq.q4">What if it doesn't fit?</span></summary><p data-i18n="faq.a4"></p></details>
+      <details><summary><span data-i18n="faq.q5">Do you take payment on this site?</span></summary><p data-i18n="faq.a5"></p></details>
+      <p style="margin-top:18px"><a href="/secondstitch/help" data-i18n="faq.more">More answers and policies</a></p>
+    </div>
+  </section>
+
+  <section class="section cta-band">
+    <div class="wrap">
+      <h2 data-i18n="cta.title" data-bi>Ready? See your price in a minute.</h2>
+      <a class="btn" href="/secondstitch/order" data-i18n="hero.cta">Get a price</a>
+    </div>
+  </section>
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="/secondstitch/i18n.js"></script>
+<script src="/secondstitch/common.js"></script>
+<script src="/secondstitch/layout.js"></script>
+<script src="/secondstitch/garments.js"></script>
+<script src="/secondstitch/home.js"></script>
+</body>
+</html>
