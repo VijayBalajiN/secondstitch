@@ -13,87 +13,31 @@
 
 <main>
   <section class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
     <div class="wrap hero-grid">
       <div>
         <p class="eyebrow" data-i18n="hero.eyebrow">Alterations and repairs · back in 2–3 days</p>
-        <h1 data-i18n="hero.title" data-bi>Measured twice. Mended once.</h1>
-        <p class="lead" data-i18n="hero.lead">A tailor near you fixes it. You see the price first.</p>
+        <h1 data-i18n="hero.title" data-bi>Clothes fixed by a tailor near you</h1>
+        <p class="lead" data-i18n="hero.lead">Hems, zips, buttons, saree fall. Tell us what needs doing and a tailor near you does it.</p>
         <div class="hero-actions">
-          <a class="btn" href="/order" data-i18n="hero.cta">Get a price</a>
-          <a class="btn btn-ghost" id="chat-cta" href="/bot" data-i18n="hero.chat">Order by chat</a>
+          <a class="btn" href="/order"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4h12M6 9h12M6 4h3a5 5 0 0 1 0 10H6l8 7"/></svg><span data-i18n="hero.cta">Get a price</span></a>
+          <a class="btn btn-ghost" id="chat-cta" href="/bot"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg><span data-i18n="hero.chat">Order by chat</span></a>
           <a class="btn btn-ghost" href="/track" data-i18n="hero.track">Track an order</a>
         </div>
         <ul class="hero-facts">
-          <li data-i18n-html="hero.fact1"><strong>Price first</strong>, before you order</li>
-          <li data-i18n-html="hero.fact2"><strong>3 quality checks</strong> on every piece</li>
-          <li data-i18n-html="hero.fact3"><strong>Free redo</strong> within 7 days</li>
+          <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4h12M6 9h12M6 4h3a5 5 0 0 1 0 10H6l8 7"/></svg><span data-i18n-html="hero.fact1"><strong>See the price</strong> before you order</span></li>
+          <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg><span data-i18n-html="hero.fact2"><strong>Checked 3 times</strong> before it's back</span></li>
+          <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.6-5.9M20 4v4.5h-4.5"/></svg><span data-i18n-html="hero.fact3"><strong>Free redo</strong> within 7 days</span></li>
         </ul>
       </div>
 
       <div class="hero-art">
-        <svg viewBox="0 0 600 440" role="img" aria-labelledby="hero-art-t">
-          <title id="hero-art-t" data-i18n="hero.art">A pair of trousers laid flat with a chalk line, pins, a tape measure and scissors</title>
-          <defs>
-            <pattern id="matgrid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0V28" fill="none" stroke="#d3c5a3" stroke-width="1"/></pattern>
-            <pattern id="tickv" x="96" y="60" width="20" height="30" patternUnits="userSpaceOnUse"><path d="M20 .5H8M20 6.5H14M20 12.5H14M20 18.5H14M20 24.5H14" stroke="#1f2a44" stroke-width="1" fill="none"/></pattern>
-            <pattern id="cut" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 0V8" stroke="#f3ebda" stroke-width="2" opacity=".55"/></pattern>
-          </defs>
-          <rect width="600" height="440" fill="#e9dec4"/>
-          <rect width="600" height="440" fill="url(#matgrid)"/>
-          <rect x="8" y="8" width="584" height="424" rx="6" fill="none" stroke="#c4b48e" stroke-width="1.5" stroke-dasharray="6 5"/>
-
-          <rect x="96" y="60" width="20" height="340" fill="#f3e3a3" stroke="#d4c07a"/>
-          <rect x="96" y="60" width="20" height="340" fill="url(#tickv)"/>
-          <rect x="96" y="60" width="20" height="10" fill="#1f2a44"/>
-
-          <g transform="translate(-20 10)">
-            <path d="M170 40 L330 40 L336 185 L322 360 L258 360 L250 205 L242 360 L178 360 L164 185 Z" fill="#31456f" stroke="#1f2a44" stroke-width="2.5" stroke-linejoin="round"/>
-            <path d="M170 40 L330 40 L331 62 L169 62 Z" fill="#26375c" stroke="#1f2a44" stroke-width="2"/>
-            <g fill="#26375c" stroke="#1f2a44" stroke-width="1.5"><rect x="180" y="36" width="7" height="32" rx="1"/><rect x="212" y="36" width="7" height="32" rx="1"/><rect x="281" y="36" width="7" height="32" rx="1"/><rect x="313" y="36" width="7" height="32" rx="1"/></g>
-            <g fill="none" stroke="#d9bd6a" stroke-width="1.6" stroke-dasharray="4 3" stroke-linecap="round">
-              <path d="M250 62 V152 Q250 170 237 167"/>
-              <path d="M176 66 Q198 112 234 106"/><path d="M324 66 Q302 112 266 106"/>
-              <path d="M181 349 H240"/><path d="M260 349 H320"/>
-              <path d="M170 64 H330"/>
-            </g>
-            <circle cx="250" cy="52" r="5" fill="#e8c46a" stroke="#1f2a44" stroke-width="1.5"/>
-
-            <path d="M174 312 L244 312 L242 360 L178 360 Z M256 312 L326 312 L322 360 L258 360 Z" fill="url(#cut)"/>
-            <path d="M174 312 H245 M255 312 H326" stroke="#ffffff" stroke-width="3" stroke-dasharray="8 5" stroke-linecap="round"/>
-            <g stroke="#6b7280" stroke-width="1.8" stroke-linecap="round">
-              <path d="M205 312 L192 294"/><path d="M228 312 L215 294"/><path d="M296 312 L283 294"/>
-            </g>
-            <g fill="#c8442f" stroke="#7d2415" stroke-width="1"><circle cx="192" cy="293" r="3.6"/><circle cx="215" cy="293" r="3.6"/><circle cx="283" cy="293" r="3.6"/></g>
-            <g stroke="#1f2a44" stroke-width="1.8" fill="none" stroke-linecap="round"><path d="M349 312 V360"/><path d="M344 318 L349 312 L354 318"/><path d="M344 354 L349 360 L354 354"/><path d="M343 312 H355 M343 360 H355"/></g>
-            <text x="361" y="342" font-family="Georgia, serif" font-size="17" font-weight="700" fill="#1f2a44">2 in</text>
-          </g>
-
-          <g transform="translate(500 150) rotate(18)">
-            <path d="M-4 4 L4 -4 L-9 -104 L-15 -100 Z" fill="#c4cad6" stroke="#1f2a44" stroke-width="1.6" stroke-linejoin="round"/>
-            <path d="M4 4 L-4 -4 L9 -104 L15 -100 Z" fill="#d7dbe4" stroke="#1f2a44" stroke-width="1.6" stroke-linejoin="round"/>
-            <path d="M0 0 L14 24 M0 0 L-14 24" stroke="#c8442f" stroke-width="6" stroke-linecap="round"/>
-            <ellipse cx="22" cy="40" rx="11" ry="16" transform="rotate(-18 22 40)" fill="none" stroke="#c8442f" stroke-width="6"/>
-            <ellipse cx="-22" cy="40" rx="11" ry="16" transform="rotate(18 -22 40)" fill="none" stroke="#c8442f" stroke-width="6"/>
-            <circle r="4" fill="#1f2a44"/>
-          </g>
-
-          <g stroke="#1f2a44" stroke-width="2" fill="#fbf7ec">
-            <circle cx="404" cy="86" r="16"/><circle cx="440" cy="118" r="16"/><circle cx="398" cy="140" r="16"/>
-          </g>
-          <g fill="none" stroke="#1f2a44" stroke-width="1"><circle cx="404" cy="86" r="10.5"/><circle cx="440" cy="118" r="10.5"/><circle cx="398" cy="140" r="10.5"/></g>
-          <g fill="#1f2a44"><circle cx="400" cy="82" r="1.8"/><circle cx="408" cy="82" r="1.8"/><circle cx="400" cy="90" r="1.8"/><circle cx="408" cy="90" r="1.8"/>
-            <circle cx="436" cy="114" r="1.8"/><circle cx="444" cy="114" r="1.8"/><circle cx="436" cy="122" r="1.8"/><circle cx="444" cy="122" r="1.8"/>
-            <circle cx="394" cy="136" r="1.8"/><circle cx="402" cy="136" r="1.8"/><circle cx="394" cy="144" r="1.8"/><circle cx="402" cy="144" r="1.8"/></g>
-
-          <g transform="translate(396 214)">
-            <rect x="0" y="0" width="46" height="8" rx="2" fill="#d9c9a0" stroke="#1f2a44" stroke-width="1.6"/>
-            <rect x="0" y="48" width="46" height="8" rx="2" fill="#d9c9a0" stroke="#1f2a44" stroke-width="1.6"/>
-            <rect x="5" y="8" width="36" height="40" fill="#c8442f" stroke="#7d2415" stroke-width="1.4"/>
-            <path d="M5 16H41M5 24H41M5 32H41M5 40H41" stroke="#7d2415" stroke-width="1.2"/>
-            <path d="M41 14 C70 4 78 30 60 40" fill="none" stroke="#c8442f" stroke-width="2.4" stroke-linecap="round"/>
-          </g>
-          <g transform="translate(40 156) rotate(-24)"><rect width="40" height="13" rx="2" fill="#ffffff" stroke="#cfc3a3" stroke-width="1.5"/><path d="M30 0V13" stroke="#e5ddc6"/></g>
-        </svg>
+        <div class="collage" role="img" aria-labelledby="hero-art-t">
+          <span id="hero-art-t" class="visually-hidden" data-i18n="hero.art">Scissors, a tape measure and thread on grey suit fabric, and a tailor's hands at a sewing machine</span>
+          <figure class="ph"><img src="/img/hero-hands.jpg" alt="" width="1000" height="667" fetchpriority="high"></figure>
+          <figure class="ph"><img src="/img/hero-needle.jpg" alt="" width="800" height="750" fetchpriority="high"></figure>
+          <figure class="ph"><img src="/img/hero-spools.jpg" alt="" width="800" height="532" fetchpriority="high"></figure>
+        </div>
         <div class="ticket" aria-hidden="true">
           <div class="ticket-top">
             <div class="label"><span data-i18n="ticket.label">Order details</span><span class="example" data-i18n="ticket.example">Example</span></div>
@@ -116,20 +60,13 @@
   </section>
   <div class="ruler"></div>
 
-  <section class="section" id="picker">
+  <section class="section" id="services">
     <div class="wrap">
       <div class="section-head">
-        <h2 id="picker-title" data-i18n="picker.title" data-bi>Where does it need fixing?</h2>
-        <p class="section-lead" data-i18n="picker.lead">Pick a garment, then tap a pin to see the fixes and prices.</p>
+        <h2 data-i18n="services.title" data-bi>What we fix</h2>
+        <p class="section-lead" data-i18n="services.lead">Tap one to start your order.</p>
       </div>
-      <div class="picker">
-        <div>
-          <div class="tabs" role="group" aria-labelledby="picker-title" id="g-tabs"></div>
-          <div class="garment-stage" id="g-stage"></div>
-          <p class="fine" style="margin:8px 4px 0" data-i18n="picker.hint">Tap a pin</p>
-        </div>
-        <div class="spot-panel" id="spot-panel" aria-live="polite"></div>
-      </div>
+      <div class="svc-grid" id="svc-grid"></div>
     </div>
   </section>
 
@@ -137,26 +74,38 @@
     <div class="wrap">
       <div class="section-head">
         <h2 data-i18n="how.title" data-bi>How it works</h2>
-        <p class="section-lead" data-i18n="how.lead">Every garment gets a QR tag. You get a message at each step.</p>
+        <p class="section-lead" data-i18n="how.lead">Your garment gets a tag with a QR code. Every time someone scans it, you get a message.</p>
       </div>
-      <div class="steps">
-        <div class="step-card">
-          <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="12" y="8" width="24" height="32" rx="3"/><path d="M18 8V6h12v2M18 20h12M18 26h12M18 32h7"/><path class="red" d="M18 14h5"/></svg>
-          <h3 data-i18n="how.s1.t" data-bi>Order</h3><p data-i18n="how.s1.p">Pick the fixes and see the price.</p>
-        </div>
-        <div class="step-card">
-          <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M11 18h26l-2 22H13z"/><path d="M18 18v-4a6 6 0 0 1 12 0v4"/><path class="red" d="M19 29l4 4 7-8"/></svg>
-          <h3 data-i18n="how.s2.t" data-bi>Hand over</h3><p data-i18n="how.s2.p">Drop it at a dry cleaner near you, or book a pickup.</p>
-        </div>
-        <div class="step-card">
-          <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="14" cy="36" r="5"/><circle cx="34" cy="36" r="5"/><path d="M17 32L34 8M31 32L14 8"/><path class="red" d="M5 45c11-5 27-5 38 0"/></svg>
-          <h3 data-i18n="how.s3.t" data-bi>Your tailor</h3><p data-i18n="how.s3.p">A tailor near you does the work.</p>
-        </div>
-        <div class="step-card">
-          <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 12h22l10 12-10 12H8z"/><circle cx="14" cy="24" r="2"/><path class="red" d="M22 24l4 4 7-8"/></svg>
-          <h3 data-i18n="how.s4.t" data-bi>Checked and returned</h3><p data-i18n="how.s4.p">We check it twice more before it comes back.</p>
-        </div>
-      </div>
+      <ol class="how-line" style="list-style:none;padding:0">
+        <li class="tl-step">
+          <span class="tl-node"><svg class="ico" viewBox="0 0 48 48" aria-hidden="true"><rect x="12" y="8" width="24" height="32" rx="3"/><path d="M18 8V6h12v2M18 20h12M18 26h12M18 32h7"/><path class="red" d="M18 14h5"/></svg></span>
+          <div class="tl-body">
+            <figure class="ph"><img src="/img/tapehoop.jpg" alt="" loading="lazy" width="800" height="500"></figure>
+            <h3 data-i18n="how.s1.t" data-bi>Order</h3><p data-i18n="how.s1.p">Choose what needs doing. The price shows straight away.</p>
+          </div>
+        </li>
+        <li class="tl-step">
+          <span class="tl-node"><svg class="ico" viewBox="0 0 48 48" aria-hidden="true"><path d="M11 18h26l-2 22H13z"/><path d="M18 18v-4a6 6 0 0 1 12 0v4"/><path class="red" d="M19 29l4 4 7-8"/></svg></span>
+          <div class="tl-body">
+            <figure class="ph"><img src="/img/fabric.jpg" alt="" loading="lazy" width="800" height="500"></figure>
+            <h3 data-i18n="how.s2.t" data-bi>Hand over</h3><p data-i18n="how.s2.p">Leave it at a partner dry cleaner, or ask for a home pickup.</p>
+          </div>
+        </li>
+        <li class="tl-step">
+          <span class="tl-node"><svg class="ico" viewBox="0 0 48 48" aria-hidden="true"><circle cx="14" cy="36" r="5"/><circle cx="34" cy="36" r="5"/><path d="M17 32L34 8M31 32L14 8"/><path class="red" d="M5 45c11-5 27-5 38 0"/></svg></span>
+          <div class="tl-body">
+            <figure class="ph"><img src="/img/machine.jpg" alt="" loading="lazy" width="800" height="500"></figure>
+            <h3 data-i18n="how.s3.t" data-bi>Your tailor</h3><p data-i18n="how.s3.p">A tailor in your area stitches it.</p>
+          </div>
+        </li>
+        <li class="tl-step">
+          <span class="tl-node"><svg class="ico" viewBox="0 0 48 48" aria-hidden="true"><path d="M8 12h22l10 12-10 12H8z"/><circle cx="14" cy="24" r="2"/><path class="red" d="M22 24l4 4 7-8"/></svg></span>
+          <div class="tl-body">
+            <figure class="ph"><img src="/img/svc-blazer.jpg" alt="" loading="lazy" width="800" height="500"></figure>
+            <h3 data-i18n="how.s4.t" data-bi>Checked and returned</h3><p data-i18n="how.s4.p">We check it twice more, then it comes back to you.</p>
+          </div>
+        </li>
+      </ol>
       <div class="updates">
         <span class="muted" data-i18n="how.hear">You hear from us at:</span>
         <span class="pill grey" data-i18n="st.confirmed">Order confirmed</span><span class="pill grey" data-i18n="st.collected">Garment collected</span><span class="pill grey" data-i18n="st.with_tailor">With tailor</span>
@@ -165,11 +114,28 @@
     </div>
   </section>
 
+  <section class="section" id="picker">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="picker-title" data-i18n="picker.title" data-bi>Start with your garment</h2>
+        <p class="section-lead" data-i18n="picker.lead">Choose a garment, then tap a numbered spot to see the fixes and prices.</p>
+      </div>
+      <div class="picker">
+        <div>
+          <div class="tabs" role="group" aria-labelledby="picker-title" id="g-tabs"></div>
+          <div class="garment-stage" id="g-stage"></div>
+          <p class="fine" style="margin:8px 4px 0" data-i18n="picker.hint">Tap a number</p>
+        </div>
+        <div class="spot-panel" id="spot-panel" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+
   <section class="section" id="prices">
     <div class="wrap">
       <div class="section-head">
-        <h2 data-i18n="board.title" data-bi>Price board</h2>
-        <p class="section-lead" data-i18n="board.lead">27 fixes. Prices are for everyday fabric in a normal week. You see the exact total when you order.</p>
+        <h2 data-i18n="board.title" data-bi>Prices</h2>
+        <p class="section-lead" data-i18n="board.lead">27 fixes, priced for everyday fabric in a normal week. You'll see your exact total before you order.</p>
       </div>
       <div class="board-cols">
         <div class="board" id="board-quick"></div>
@@ -201,8 +167,8 @@
   <section class="section alt" id="tailors">
     <div class="wrap">
       <div class="section-head">
-        <h2 data-i18n="tailors.title" data-bi>Meet your tailors</h2>
-        <p class="section-lead" data-i18n="tailors.lead">Your garment goes to a tailor near you, not a factory line. These are sample profiles.</p>
+        <h2 data-i18n="tailors.title" data-bi>Tailors near you</h2>
+        <p class="section-lead" data-i18n="tailors.lead">Your clothes go to a tailor in your area, not a factory. These profiles are samples.</p>
       </div>
       <div class="tailors" id="tailors-grid"></div>
     </div>
@@ -210,10 +176,10 @@
 
   <section class="section">
     <div class="wrap promises">
-      <div class="promise"><strong data-i18n="promise.price.t" data-bi>Price first</strong><p data-i18n="promise.price.p">You see the total before you order. It changes only if the job does.</p></div>
-      <div class="promise"><strong data-i18n="promise.checks.t" data-bi>Three checks</strong><p data-i18n="promise.checks.p">Your tailor checks it, then we check it twice more.</p></div>
-      <div class="promise"><strong data-i18n="promise.redo.t" data-bi>Free redo</strong><p data-i18n="promise.redo.p">Not right? We'll redo it free within 7 days. Damaged while with us? We pay for it.</p></div>
-      <div class="promise"><strong data-i18n="promise.updates.t" data-bi>Chat updates</strong><p data-i18n="promise.updates.p">A message on WhatsApp or Telegram at every step.</p></div>
+      <div class="promise"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4h12M6 9h12M6 4h3a5 5 0 0 1 0 10H6l8 7"/></svg><strong data-i18n="promise.price.t" data-bi>Price first</strong><p data-i18n="promise.price.p">The total is on screen before you order. It only changes if the job turns out different.</p></div>
+      <div class="promise"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg><strong data-i18n="promise.checks.t" data-bi>Three checks</strong><p data-i18n="promise.checks.p">Your tailor checks it, then we check it twice more.</p></div>
+      <div class="promise"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.6-5.9M20 4v4.5h-4.5"/></svg><strong data-i18n="promise.redo.t" data-bi>Free redo</strong><p data-i18n="promise.redo.p">Not right? We'll redo it free within 7 days. Damaged while with us? We pay for it.</p></div>
+      <div class="promise"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg><strong data-i18n="promise.updates.t" data-bi>Chat updates</strong><p data-i18n="promise.updates.p">A message on WhatsApp or Telegram at every step.</p></div>
     </div>
   </section>
 
@@ -231,8 +197,8 @@
 
   <section class="section cta-band">
     <div class="wrap">
-      <h2 data-i18n="cta.title" data-bi>Ready? See your price in a minute.</h2>
-      <a class="btn" href="/order" data-i18n="hero.cta">Get a price</a>
+      <h2 data-i18n="cta.title" data-bi>Check your price. It takes about a minute.</h2>
+      <a class="btn" href="/order"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4h12M6 9h12M6 4h3a5 5 0 0 1 0 10H6l8 7"/></svg><span data-i18n="hero.cta">Get a price</span></a>
     </div>
   </section>
 </main>

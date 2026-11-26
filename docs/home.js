@@ -76,7 +76,7 @@ function boardRows(list, both) {
     const prices = both
       ? `<b>${plus}${rupees(s.prices.standard)}</b><i>${plus}${rupees(s.prices.premium)}</i>`
       : `<b>${rupees(s.prices.premium)}</b>`;
-    return `<li><span class="nm">${esc(svcName(s.id, s.name))} <small>· ${esc(t("board.min", { n: s.minutes }))}</small></span><span class="dots"></span><span class="pr">${prices}</span></li>`;
+    return `<li><span class="nm">${svcThumb(s.id)}<span>${esc(svcName(s.id, s.name))} <small>· ${esc(t("board.min", { n: s.minutes }))}</small></span></span><span class="dots"></span><span class="pr">${prices}</span></li>`;
   }).join("")}</ul>`;
 }
 
@@ -93,39 +93,58 @@ function renderBoard() {
     ${boardRows(prem, false)}`;
 }
 
+// ---------- What we fix: photo cards ----------
+
+const GROUPS = [
+  { key: "hem", img: "svc-hem", ids: ["trouser-hem", "jeans-original-hem", "kurta-hem", "salwar-shorten"] },
+  { key: "zip", img: "svc-zip", ids: ["fly-zip", "dress-zip", "jacket-zip"] },
+  { key: "button", img: "svc-button", ids: ["button", "extra-button"] },
+  { key: "saree", img: "svc-saree", ids: ["saree-fall"] },
+  { key: "blouse", img: "svc-blouse", ids: ["blouse"] },
+  { key: "kurta", img: "svc-kurta", ids: ["kurta-resize", "side-seams"] },
+  { key: "blazer", img: "svc-blazer", ids: ["blazer-sleeve", "sleeve-cuff", "shoulder", "lining", "sleeve-shorten"] },
+  { key: "fit", img: "svc-fit", ids: ["waist", "taper", "refit"] },
+  { key: "mend", img: "svc-mend", ids: ["open-seam", "darn"] },
+  { key: "lehenga", img: "svc-lehenga", ids: ["lehenga-waist", "flare", "lace"] },
+  { key: "elastic", img: "svc-elastic", ids: ["elastic"] },
+];
+const CHAT_ICON = '<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg>';
+
+function renderServices() {
+  const cards = GROUPS.map((g) => {
+    const found = g.ids.map(svc).filter(Boolean);
+    if (!found.length) return "";
+    const lowest = Math.min(...found.map(fromPrice));
+    return `<a class="svc-card" href="/secondstitch/order?add=${encodeURIComponent(found[0].id)}">
+      <img src="/secondstitch/img/${g.img}.jpg" alt="" width="800" height="600" loading="lazy">
+      <span class="meta"><b>${esc(t("svc.cat." + g.key))}</b><span class="from">${esc(t("picker.from", { price: rupees(lowest) }))}</span></span>
+    </a>`;
+  }).join("");
+  const other = `<a class="svc-card other" href="${chatHref}">${CHAT_ICON}<b>${esc(t("svc.other.t"))}</b><p>${esc(t("svc.other.p"))}</p></a>`;
+  $("#svc-grid").innerHTML = cards + other;
+}
+
 // ---------- Tailors ----------
 
 const TAILORS = [
-  { n: 1, skin: "#c98b5e", hair: "#2b211c", top: "#c8442f", bun: true },
-  { n: 2, skin: "#b87a52", hair: "#241c18", top: "#3b5b8c", specs: true, beard: true },
-  { n: 3, skin: "#d69a6e", hair: "#8a8a8a", top: "#2f7d5a", bun: true, bindi: true },
+  { n: 1, face: "tailor-1", work: "svc-saree" },
+  { n: 2, face: "tailor-2", work: "svc-hem" },
+  { n: 3, face: "tailor-3", work: "spec-3" },
 ];
-
-function avatar(a) {
-  return `<svg viewBox="0 0 84 84" aria-hidden="true">
-    <path d="M8 84 C8 62 27 56 42 56 S76 62 76 84Z" fill="${a.top}"/>
-    <path d="M31 58 L36 84 M53 58 L48 84" stroke="#f3e3a3" stroke-width="6" fill="none"/>
-    <path d="M31 58 L36 84 M53 58 L48 84" stroke="#1f2a44" stroke-width="1" stroke-dasharray="1.2 3" fill="none"/>
-    <rect x="37" y="46" width="10" height="14" rx="4" fill="${a.skin}"/>
-    ${a.bun ? `<circle cx="42" cy="15" r="7" fill="${a.hair}"/>` : ""}
-    <circle cx="42" cy="35" r="16" fill="${a.skin}"/>
-    <path d="M26 36 Q25 17 42 17 Q59 17 58 36 Q55 25 42 25 Q29 25 26 36Z" fill="${a.hair}"/>
-    ${a.beard ? `<path d="M30 40 Q42 62 54 40 Q42 50 30 40Z" fill="${a.hair}"/>` : ""}
-    ${a.specs ? `<g fill="none" stroke="#1f2a44" stroke-width="1.6"><circle cx="35" cy="35" r="5"/><circle cx="49" cy="35" r="5"/><path d="M40 35h4"/></g>` : ""}
-    ${a.bindi ? `<circle cx="42" cy="27" r="1.7" fill="#c8442f"/>` : ""}
-  </svg>`;
-}
 
 function renderTailors() {
   $("#tailors-grid").innerHTML = TAILORS.map((a) => `
     <article class="tailor">
       <span class="stamp">${esc(t("tailors.sample"))}</span>
-      ${avatar(a)}
-      <h3>${esc(t(`tailors.t${a.n}.name`))}</h3>
-      <p class="where">${esc(t(`tailors.t${a.n}.where`))}</p>
-      <dl><dt>${esc(t("tailors.dt.years"))}</dt><dd>${esc(t(`tailors.t${a.n}.years`))}</dd>
-          <dt>${esc(t("tailors.dt.spec"))}</dt><dd>${esc(t(`tailors.t${a.n}.spec`))}</dd></dl>
-      <p class="quote">“${esc(t(`tailors.t${a.n}.quote`))}”</p>
+      <img class="spec-img" src="/secondstitch/img/${a.work}.jpg" alt="" width="800" height="600" loading="lazy">
+      <img class="avatar" src="/secondstitch/img/${a.face}.jpg" alt="" width="360" height="360" loading="lazy">
+      <div class="body">
+        <h3>${esc(t(`tailors.t${a.n}.name`))}</h3>
+        <p class="where">${esc(t(`tailors.t${a.n}.where`))}</p>
+        <dl><dt>${esc(t("tailors.dt.years"))}</dt><dd>${esc(t(`tailors.t${a.n}.years`))}</dd>
+            <dt>${esc(t("tailors.dt.spec"))}</dt><dd>${esc(t(`tailors.t${a.n}.spec`))}</dd></dl>
+        <p class="quote">“${esc(t(`tailors.t${a.n}.quote`))}”</p>
+      </div>
     </article>`).join("");
 }
 
@@ -135,6 +154,7 @@ let chatHref = "/secondstitch/bot";
 
 function renderAll() {
   if (!C) return;
+  renderServices();
   renderPicker();
   renderBoard();
   renderTailors();
@@ -154,7 +174,7 @@ async function init() {
     if (ch.telegram) chatHref = `https://t.me/${ch.telegram}`;
   } catch { /* channels are optional */ }
   $("#chat-cta").href = chatHref;
-  if (chatHref === "/secondstitch/bot") { $("#chat-cta").dataset.i18n = "hero.chat.demo"; i18n.apply($("#chat-cta").parentElement); }
+  if (chatHref === "/secondstitch/bot") { const label = $("#chat-cta span"); label.dataset.i18n = "hero.chat.demo"; i18n.apply($("#chat-cta")); }
   renderAll();
 }
 

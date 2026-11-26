@@ -13,8 +13,10 @@
 
 <main class="section">
   <div class="wrap">
-    <h1 data-i18n="track.title" data-bi>Track an order</h1>
-    <p class="section-lead" data-i18n="track.lead">Every QR scan updates this page, from the counter to your door.</p>
+    <div class="page-head" style="--bg:url('/secondstitch/img/shop.jpg')">
+      <h1 data-i18n="track.title" data-bi>Track an order</h1>
+      <p class="section-lead" data-i18n="track.lead">Enter your order number to see where your clothes are.</p>
+    </div>
     <form class="track-form" id="track-form">
       <label class="visually-hidden" for="order-id" data-i18n="track.id">Your order number</label>
       <input type="text" id="order-id" placeholder="SS-XXXXX" maxlength="8" autocomplete="off" required>

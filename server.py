@@ -45,7 +45,7 @@ PORT = int(os.environ.get("PORT", "8080"))
 MAX_BODY = 16 * 1024 * 1024
 
 PAGES = {"/": "index.html", "/order": "order.html", "/help": "help.html", "/track": "track.html",
-         "/ops": "ops.html", "/bot": "bot.html"}
+         "/ops": "ops.html", "/bot": "bot.html", "/credits": "credits.html"}
 UPLOAD_RE = re.compile(r"^/uploads/(SS-[A-Z0-9]{5}-\d\.(?:jpeg|png|webp))$")
 WA_RE = re.compile(r"\d{10,15}")
 SIM_PHOTO_RE = re.compile(r"^data:(image/(?:jpeg|png|webp));base64,([A-Za-z0-9+/=]+)$")

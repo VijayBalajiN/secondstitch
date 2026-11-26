@@ -20,8 +20,8 @@ PY_MODULES = ["pricing", "orders", "whatsapp", "telegram", "bot", "api", "static
 
 # Root paths inside quotes: "/", "/#how", "/track?id=", "/styles.css", "/api/quote", "/lang/..." and so on.
 ROOT_PATH = re.compile(
-    r"""(["'`])/(?=(?:api/|lang/|uploads/|styles\.css|favicon\.svg|(?:layout|i18n|common|home|order|track|ops|bot|garments)\.js"""
-    r"""|(?:bot|track|order|ops|help)(?=["'`?#])|[#?]|["'`]))"""
+    r"""(["'`])/(?=(?:api/|lang/|uploads/|img/|credits\.json|styles\.css|favicon\.svg|(?:layout|i18n|common|home|order|track|ops|bot|garments|credits)\.js"""
+    r"""|(?:bot|track|order|ops|help|credits)(?=["'`?#])|[#?]|["'`]))"""
 )
 NOTE = {
     "en": " Orders you place are saved in this browser only.",

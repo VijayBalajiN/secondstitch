@@ -57,6 +57,7 @@ def family_keys():
         keys.update((f"st.{s}", f"st.{s}.d"))
     keys.add("st.cancelled")
     keys.update(f"step.{n}" for n in range(1, 5))
+    keys.update(f"svc.cat.{g}" for g in ("hem", "zip", "button", "saree", "blouse", "kurta", "blazer", "fit", "mend", "lehenga", "elastic"))
     keys.update(f"tailors.t{n}.{f}" for n in range(1, 4) for f in ("name", "where", "years", "spec", "quote"))
     keys.update(("season.offpeak", "season.normal", "season.wedding"))
     keys.update(f"season.{name.split()[0].lower()}" for _, _, name in pricing.FESTIVAL_WEEKS)

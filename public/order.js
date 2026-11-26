@@ -180,7 +180,7 @@ function garmentHtml(g, i) {
   const jobs = g.jobs.map((j) => {
     const s = svc(j.id);
     return `<li class="job-row">
-      <span class="name">${esc(name(s))}${s.premium_only ? ` <span class="pill dark">${esc(t("board.premium"))}</span>` : ""}</span>
+      <span class="name">${svcThumb(s.id)}${esc(name(s))}${s.premium_only ? ` <span class="pill dark">${esc(t("board.premium"))}</span>` : ""}</span>
       <span class="qty" aria-label="${esc(t("o.qty"))}">
         <button type="button" data-act="dec" data-job="${j.id}" aria-label="${esc(t("o.fewer"))}">−</button>
         <output>${j.qty}</output>

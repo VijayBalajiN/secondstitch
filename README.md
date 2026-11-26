@@ -116,3 +116,7 @@ git add -A && git commit -m "Update site" && git push
 `python3 static/build.py ./out /other-path` builds for a different address. WhatsApp and Telegram are not
 connected in the browser copy (they need a server); the bot simulator works.
 
+
+## Photos
+
+Photos are in `public/img/` and credited in `public/credits.json` (shown at `/credits`). They come from Creative Commons or public-domain sources; keep the credit line when you add one.

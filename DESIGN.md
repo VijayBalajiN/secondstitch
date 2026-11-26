@@ -104,3 +104,11 @@ went through the site. What changed:
 Not done: self-hosted Hindi and Tamil fonts (they use system fonts), asking for name and phone earlier in the
 order, surnames or shop names for the sample tailors, a real contact number.
 
+
+## Photos and copy pass (2026-11-27)
+
+- **Photos.** 29 real photos live in `public/img/`, found through the Openverse API (CC0, public domain, CC BY, CC BY-SA only; no NC or ND). Every one is listed in `public/credits.json` with creator, licence and source link, and `/credits` shows them. If you add or swap a photo, add its line there too. Tailor portraits are crops of photos of tailors at work; the names and quotes are made up and the cards keep the "Sample profile" stamp.
+- **Home page.** The hero has the tools photo as a full-width background and a three-photo collage; the order-ticket card sits on top, unchanged. "What we fix" is a grid of 11 photo cards (price from the live catalogue) plus a "send a photo" card. "How it works" is a timeline of four icon nodes on a stitched line, each with a photo. Tailor cards show a speciality photo and a round portrait. Price board rows and order job rows have a small photo (`SVC_IMG` in `common.js`).
+- **Rupee icon.** The "Get a price" buttons carry a ₹ icon; on phones the header copy is hidden (the hero has one).
+- **Copy.** Headlines that read like slogans or questions were rewritten in a plainer voice (see `lang/en.json`; Hindi and Tamil follow). Voice references: two clean samples from the writing-scaffold archive (casual, specific, deadpan) and claudish's rule of short sentences and everyday words. The archive is mostly meme and forum text, so it was used as a voice guide, not copied line by line.
+- **Static build.** `static/build.py` now also rewrites `/img/` and `/credits` paths.

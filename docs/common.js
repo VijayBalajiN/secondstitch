@@ -56,6 +56,20 @@ function toast(msg) {
 // ---------- Server names in the current language ----------
 
 const svcName = (id, fallback) => tOr("svc." + id, fallback);
+
+// Which photo shows next to which fix.
+const SVC_IMG = {
+  "button": "svc-button", "extra-button": "svc-button",
+  "open-seam": "svc-mend", "darn": "svc-mend",
+  "elastic": "svc-elastic",
+  "salwar-shorten": "svc-hem", "trouser-hem": "svc-hem", "jeans-original-hem": "svc-hem", "kurta-hem": "svc-kurta",
+  "sleeve-shorten": "svc-blazer", "sleeve-cuff": "svc-blazer", "blazer-sleeve": "svc-blazer", "shoulder": "svc-blazer", "lining": "svc-blazer",
+  "side-seams": "svc-fit", "waist": "svc-fit", "taper": "svc-fit", "refit": "svc-fit", "kurta-resize": "svc-kurta",
+  "lace": "svc-lehenga", "lehenga-waist": "svc-lehenga", "flare": "svc-lehenga",
+  "saree-fall": "svc-saree", "blouse": "svc-blouse",
+  "fly-zip": "svc-zip", "dress-zip": "svc-zip", "jacket-zip": "svc-zip",
+};
+const svcThumb = (id) => SVC_IMG[id] ? `<img class="svc-thumb" src="/secondstitch/img/${SVC_IMG[id]}.jpg" alt="" width="34" height="34" loading="lazy">` : "";
 const fabricName = (key, fallback) => tOr("fabric." + key, fallback);
 const handoverName = (key, fallback) => tOr("ho.q." + key, fallback);
 const counterName = (id, fallback) => tOr("counter." + id, fallback);

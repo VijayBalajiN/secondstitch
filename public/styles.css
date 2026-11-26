@@ -480,3 +480,115 @@ html[lang="hi"] .ticket .example, html[lang="ta"] .ticket .example { letter-spac
   .hero-actions .btn { flex: 1 1 auto; }
 }
 @media (max-width: 430px) { .nav a.btn-small { display: none; } }
+
+/* ---- Photos, timeline and service cards (v3) ---- */
+.ph { margin: 0; overflow: hidden; border-radius: 10px; background: var(--paper-2); box-shadow: var(--shadow); }
+.ph img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.ico { width: 1.15em; height: 1.15em; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.btn .ico { width: 1.25em; height: 1.25em; }
+
+/* Hero: a photo of the tools behind everything, a photo collage on the right, the ticket on top */
+.hero { position: relative; isolation: isolate; overflow: hidden; }
+.hero-bg { position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, var(--paper) 0%, rgba(243, 235, 218, .93) 36%, rgba(243, 235, 218, .62) 68%, rgba(243, 235, 218, .3) 100%), url("/img/hero-tools.jpg") center / cover; }
+.collage { display: grid; grid-template-columns: 1.25fr 1fr; grid-template-rows: 200px 200px; gap: 12px; }
+.collage figure:first-of-type { grid-row: 1 / span 2; }
+.collage .ph { box-shadow: 0 1px 0 rgba(31, 42, 68, .06), 0 10px 24px rgba(31, 42, 68, .16); border: 3px solid #fffdf4; border-radius: 6px; }
+.hero-art .ticket { margin-top: -58px; }
+.hero-facts li::before { display: none; }
+.hero-facts li { display: inline-flex; align-items: center; gap: 8px; }
+.hero-facts .ico { color: var(--thread); width: 1.3em; height: 1.3em; }
+
+/* What we fix: photo cards */
+.svc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.svc-card { position: relative; display: block; overflow: hidden; border-radius: 10px; background: var(--card); border: 1px solid var(--line); color: var(--ink); text-decoration: none; transition: transform .15s, box-shadow .15s; }
+.svc-card:hover, .svc-card:focus-visible { transform: translateY(-3px); box-shadow: var(--shadow); }
+.svc-card img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; }
+.svc-card .meta { padding: 10px 14px 13px; }
+.svc-card b { display: block; font: 600 1.02rem/1.25 var(--serif); }
+.svc-card .from { display: block; margin-top: 2px; color: var(--muted); font-size: .86rem; }
+.svc-card .from strong { color: var(--thread-ink); font-weight: 700; }
+.svc-card.other { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 6px; padding: 18px; border: 2px dashed var(--line-2); background: transparent; min-height: 180px; }
+.svc-card.other .ico { width: 34px; height: 34px; color: var(--thread); }
+.svc-card.other p { margin: 0; color: var(--muted); font-size: .88rem; }
+.svc-thumb { width: 34px; height: 34px; border-radius: 6px; object-fit: cover; flex: none; align-self: center; margin-right: 10px; border: 1px solid var(--line); }
+
+/* How it works: a timeline */
+.how-line { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; margin-top: 34px; }
+.how-line::before { content: ""; position: absolute; top: 31px; left: 12.5%; right: 12.5%; border-top: 3px dashed var(--thread); opacity: .55; }
+.tl-step { position: relative; text-align: center; }
+.tl-node { position: relative; z-index: 1; display: grid; place-items: center; width: 64px; height: 64px; margin: 0 auto 16px; border-radius: 50%; background: var(--card); border: 2px solid var(--ink); box-shadow: 0 0 0 5px var(--card), 0 0 0 7px var(--tape-edge); color: var(--ink); }
+.tl-node .ico { width: 30px; height: 30px; stroke-width: 1.7; }
+.tl-node .ico .red { stroke: var(--thread); }
+.tl-step .ph { aspect-ratio: 16 / 10; margin-bottom: 12px; }
+.tl-step h3 { font-size: 1.12rem; margin-bottom: 4px; }
+.tl-step p { margin: 0; color: var(--muted); font-size: .94rem; }
+.section.alt .tl-node { box-shadow: 0 0 0 5px var(--card), 0 0 0 7px var(--tape-edge); }
+
+/* Price board rows with a small photo */
+.board li .thumbwrap { display: flex; align-items: center; min-width: 0; }
+.board li .nm { display: flex; align-items: center; }
+
+/* Tailors: speciality photo on top, round portrait on its edge */
+.tailor { padding: 0; overflow: hidden; }
+.tailor .spec-img { display: block; width: 100%; height: 138px; object-fit: cover; }
+.tailor .avatar { position: relative; display: block; width: 96px; height: 96px; margin: -48px 0 10px 20px; border-radius: 50%; object-fit: cover; border: 4px solid var(--card); box-shadow: 0 0 0 2px var(--ink); background: var(--paper-2); }
+.tailor .body { padding: 0 20px 20px; }
+.tailor .stamp { background: rgba(251, 247, 236, .94); }
+.tailor .spec-label { position: absolute; left: 12px; top: 106px; background: rgba(31, 42, 68, .82); color: #fff; font-size: .74rem; padding: 2px 9px; border-radius: 3px; }
+
+/* Promises with icons */
+.promise .ico { width: 30px; height: 30px; color: var(--thread); margin-bottom: 8px; display: block; }
+
+/* Closing band over a photo */
+.cta-band { position: relative; isolation: isolate; color: #fff; background: linear-gradient(rgba(31, 42, 68, .8), rgba(31, 42, 68, .8)), url("/img/fabric.jpg") center / cover; border-top: 0; }
+.cta-band h2 { color: #fff; }
+
+/* Page banners on order, help and track */
+.page-head { position: relative; isolation: isolate; padding: 6px 0 4px; }
+.page-head::before { content: ""; position: absolute; inset: -36px -9999px -18px; z-index: -1; background: linear-gradient(90deg, rgba(243, 235, 218, .98) 0%, rgba(243, 235, 218, .9) 45%, rgba(243, 235, 218, .55) 100%), var(--bg) center / cover; border-bottom: 1px solid var(--line); }
+.strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 22px; }
+.strip .ph { aspect-ratio: 16 / 9; }
+
+/* Credits */
+.credits { list-style: none; margin: 18px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.credits li { display: grid; grid-template-columns: 84px 1fr; gap: 12px; align-items: center; background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 8px; font-size: .88rem; }
+.credits img { width: 84px; height: 62px; object-fit: cover; border-radius: 4px; }
+.credits small { display: block; color: var(--muted); }
+
+@media (max-width: 960px) {
+  .svc-grid { grid-template-columns: repeat(3, 1fr); }
+  .how-line { grid-template-columns: repeat(2, 1fr); row-gap: 34px; }
+  .how-line::before { display: none; }
+  .credits { grid-template-columns: 1fr; }
+}
+@media (max-width: 760px) {
+  .collage { grid-template-rows: 150px 120px; }
+  .hero-art .ticket { margin-top: -40px; }
+  .how-line { grid-template-columns: 1fr; gap: 0; margin-top: 26px; }
+  .how-line::before { display: block; top: 32px; bottom: 32px; left: 31px; right: auto; border-top: 0; border-left: 3px dashed var(--thread); }
+  .tl-step { display: grid; grid-template-columns: 64px 1fr; column-gap: 18px; text-align: left; padding-bottom: 26px; }
+  .tl-step:last-child { padding-bottom: 0; }
+  .tl-node { margin: 0; }
+  .tl-step .ph { max-width: 340px; }
+  .strip { grid-template-columns: 1fr; }
+  .strip .ph:nth-child(n+2) { display: none; }
+}
+@media (max-width: 560px) {
+  .svc-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .svc-card .meta { padding: 8px 10px 11px; }
+}
+.nav a.btn { display: inline-flex; }
+.fit-guide .step-card .ph { aspect-ratio: 16 / 10; margin-bottom: 12px; box-shadow: none; }
+.job-row .name { display: flex; align-items: center; }
+.cta-band .hi-sub { color: var(--tape); }
+@media (max-width: 560px) {
+  .nav-cta span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .nav a.nav-cta { padding: 9px 11px; }
+}
+@media (max-width: 480px) {
+  .lang { max-width: 104px; min-width: 0; padding: 8px 2px; font-size: .8rem; }
+  .logo { gap: 6px; font-size: 1.05rem; }
+  .nav { gap: 8px; }
+  .header-row { gap: 6px; }
+}
+@media (max-width: 480px) { .nav a.nav-cta { display: none; } }
