@@ -188,8 +188,8 @@ def go(s, step):
 
 def greeting(s):
     first = s["name"].split(" ")[0] if s.get("name") else ""
-    return B(f"Hi{' ' + first if first else ''}! This is SecondStitch. A tailor near you fixes it, "
-             "back in 2–3 days. You see the price first.",
+    return B(f"Hi{' ' + first if first else ''}! This is SecondStitch. Hems, zips, buttons, saree fall: "
+             "tell me what needs doing and a tailor near you does it. You'll see the price before you order.",
              [("new", "New order"), ("track", "Track an order"), ("prices", "Prices")])
 
 
@@ -215,7 +215,7 @@ def prices():
     lines += [f"• {SHORT[i]} (Premium): {rupees(p[i]['prices']['premium'])}" for i in prem]
     lines.append("\nSilk and delicate fabric cost 30% more, embellished 50% more. Minimum order ₹99. "
                  "Drop-off at a dry cleaner is free; home pickup is ₹99 or ₹149.")
-    return [T("\n".join(lines)), B("Ready when you are.", [("new", "New order"), ("track", "Track an order")])]
+    return [T("\n".join(lines)), B("Want to place an order?", [("new", "New order"), ("track", "Track an order")])]
 
 
 def start_track(s):
@@ -223,9 +223,9 @@ def start_track(s):
     mine = [o for o in orders.store.by_phone(phone) if o["status"] not in ("delivered", "cancelled")] if phone else []
     s["step"] = "track"
     if not mine:
-        return [T("Type your order ID. It looks like *SS-7K2QD* and is in your confirmation message.")]
+        return [T("Type your order number. It looks like *SS-7K2QD* and is in your confirmation message.")]
     lines = ["*Your open orders*"] + [status_line(o) for o in mine[:5]]
-    lines.append("\nType another order ID to look it up, or *menu* to go back.")
+    lines.append("\nType another order number to look it up, or *menu* to go back.")
     return [T("\n".join(lines))]
 
 
@@ -235,14 +235,14 @@ def handle_track(s, inp, text, cid):
     if cid or text:
         reset(s)
         return respond(s, inp)
-    return [T("Type an order ID like *SS-7K2QD*, or *menu* to go back.")]
+    return [T("Type an order number like *SS-7K2QD*, or *menu* to go back.")]
 
 
 def lookup(s, text):
     oid = orders.ID_RE.search(text.upper()).group(0)
     order = orders.store.orders.get(oid)
     if not order:
-        return [T(f"I couldn't find *{oid}*. Check the ID in your confirmation message.")]
+        return [T(f"I couldn't find *{oid}*. Check the number in your confirmation message.")]
     steps = [f"{fmt_time(e['at'])} · {e['label']}" for e in order["events"]]
     return [T(f"{status_line(order)}\nBack {order['quote']['ready']}.\n\n" + "\n".join(steps))]
 
@@ -279,7 +279,7 @@ def jobs_text(g):
 def ask_category(s):
     n = len(s["draft"]["garments"])
     rows = [(f"cat:{k}", title, desc) for k, title, desc, _ in CATEGORIES]
-    return [L(f"Garment {n}: what needs fixing?", "Choose a category", [("Categories", rows)])]
+    return [L(f"Garment {n}: what do you want fixed?", "Choose a category", [("Categories", rows)])]
 
 
 def handle_category(s, inp, text, cid):
@@ -321,7 +321,7 @@ def handle_service(s, inp, text, cid):
 
 
 def ask_button_qty(s):
-    return [B("How many buttons or hooks on this garment? More than 3? Type the number.",
+    return [B("How many buttons or hooks? If it's more than 3, type the number.",
               [("bq:1", "1 button"), ("bq:2", "2 buttons"), ("bq:3", "3 buttons")])]
 
 
@@ -342,7 +342,7 @@ def after_job(s):
 
 
 def ask_fabric(s):
-    return [B("What is this garment made of?\n"
+    return [B("What's the fabric?\n"
               "• *Everyday*: cotton, denim, linen, polyester\n"
               "• *Silk / delicate*: silk, georgette, chiffon, satin, velvet (×1.3)\n"
               "• *Embellished*: embroidery, sequins or beadwork near the work area (×1.5, Premium only)",
@@ -388,7 +388,7 @@ def finish_garment(s):
 
 
 def ask_fit(s):
-    return [L("This fix depends on fit. How will you show the tailor the right size?", "Choose one",
+    return [L("This fix depends on fit. Show the tailor the size you want:", "Choose one",
               [("Fit mark", [(f"fit:{k}", t, d) for k, t, d in FIT_ROWS])])]
 
 
@@ -478,7 +478,7 @@ def ask_tier(s):
     def work(tier):
         q = pricing.quote(request(s, tier=tier, speed="standard", handover="counter"))
         return rupees(q["work"] + q["min_order_topup"]) if q["ok"] else "n/a"
-    return [B("Who should do it?\n"
+    return [B("Pick a tailor:\n"
               "• *Standard*: a home tailor near you\n"
               "• *Premium*: a master tailor, with Express next day\n\n"
               "Prices shown are for the work only.",
@@ -504,7 +504,7 @@ def ask_speed(s):
     tomorrow = (now().date() + timedelta(days=1)).isoformat()
     q = pricing.quote(request(s, speed="express", handover="counter", date=tomorrow))
     extra = rupees(q["express"]) if q["ok"] else "40%"
-    return [B("How fast?\n• *2–3 days*: included\n• *Express*: hand over by 11 am, back by 3 pm next day",
+    return [B("Pick a speed:\n• *2–3 days*: included\n• *Express*: hand over by 11 am, back by 3 pm next day",
               [("sp:standard", "2–3 days"), ("sp:express", f"Next day +{extra}")])]
 
 
@@ -517,7 +517,7 @@ def handle_speed(s, inp, text, cid):
 
 
 def ask_handover(s):
-    return [B("How will you hand it over?\n"
+    return [B("Drop off or pickup?\n"
               "• *Partner counter*: drop it at a dry cleaner, free\n"
               "• *Home pickup and return*: ₹99 within 4 km, ₹149 for 4–8 km (free on work of ₹1,200+)",
               [("ho:counter", "Partner counter"), ("ho:pickup-4", "Pickup within 4 km"), ("ho:pickup-8", "Pickup 4–8 km")])]
@@ -533,7 +533,7 @@ def handle_handover(s, inp, text, cid):
 
 def ask_counter(s):
     rows = [(f"ct:{c['id']}", c["short"], c["name"]) for c in pricing.COUNTERS]
-    return [L("Which partner counter?", "Choose a counter", [("Partner counters", rows)])]
+    return [L("Choose a counter.", "Choose a counter", [("Partner counters", rows)])]
 
 
 def handle_counter(s, inp, text, cid):
@@ -572,8 +572,8 @@ def ask_date(s):
         title = ("Today · " if day == today else "Tomorrow · " if day == today + timedelta(days=1) else "") + label
         desc = {"peak": f"{d['label']}: 20% more", "offpeak": "Off-peak: 10% less"}.get(d["kind"], "Normal price")
         rows.append((f"dt:{d['date']}", title, desc))
-    body = ("Which day should we pick it up? Pickups run in the afternoon." if s["draft"]["handover"] != "counter"
-            else "Which day will you drop it at the counter?")
+    body = ("Pick a day for the pickup. Pickups run in the afternoon." if s["draft"]["handover"] != "counter"
+            else "Pick a day to drop it at the counter.")
     return [L(body, "Choose a day", [("Next 10 days", rows)])]
 
 
@@ -611,7 +611,7 @@ def handle_phone(s, inp, text, cid):
 
 
 def ask_name(s):
-    return [T("What name should we put on the order?")]
+    return [T("Send your name for the order.")]
 
 
 def handle_name(s, inp, text, cid):
@@ -722,7 +722,7 @@ def rate_order(s, stars):
 
 STEPS = {
     "idle": {"ask": lambda s: [greeting(s)], "handle": handle_idle},
-    "track": {"ask": lambda s: [T("Type an order ID like *SS-7K2QD*.")], "handle": handle_track},
+    "track": {"ask": lambda s: [T("Type an order number like *SS-7K2QD*.")], "handle": handle_track},
     "category": {"ask": ask_category, "handle": handle_category},
     "service": {"ask": ask_service, "handle": handle_service},
     "button_qty": {"ask": ask_button_qty, "handle": handle_button_qty},

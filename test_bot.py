@@ -165,7 +165,7 @@ class ConversationTest(unittest.TestCase):
         out = c.say("Flat 4B, Lake View Apartments, near the park")
         first_day = ids(out[-1])[0]
         out = c.pick(first_day)
-        self.assertIn("What name", texts(out))  # no profile name given
+        self.assertIn("your name", texts(out))  # no profile name given
         out = c.say("Ravi Kumar")
         self.assertIn("Total", texts(out))
         c.tap("confirm")
