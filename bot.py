@@ -36,7 +36,7 @@ SHORT = {
     "side-seams": "Side seams in/out 1 in", "waist": "Trouser waist in/out", "lehenga-waist": "Lehenga/skirt waist",
     "taper": "Taper trouser legs", "flare": "Flare reduction", "fly-zip": "Fly zip replace",
     "dress-zip": "Kurta/dress zip", "jacket-zip": "Jacket zip replace", "kurta-resize": "Kurta/top resize",
-    "shoulder": "Shirt shoulder", "blouse": "Lined blouse alteration", "refit": "Complete refit",
+    "shoulder": "Shirt shoulder", "blouse": "Lined blouse alteration", "refit": "Complete refit", "new-stitch": "New garment (to measure)",
     "saree-fall": "Saree fall and pico", "lace": "Lace or border attach", "extra-button": "Extra buttons",
 }
 
@@ -51,6 +51,7 @@ CATEGORIES = [
     ("zips", "Zips", "Fly, side or back, jacket zips", ["fly-zip", "dress-zip", "jacket-zip"]),
     ("resize", "Resize and refit", "Kurtas, blouses, shoulders, full refits", ["kurta-resize", "blouse", "shoulder", "refit"]),
     ("saree", "Saree and trims", "Fall and pico, lace or border", ["saree-fall", "lace"]),
+    ("new", "New clothes", "Stitched to your measurements", ["new-stitch"]),
 ]
 CATEGORY = {key: (title, ids) for key, title, _, ids in CATEGORIES}
 
