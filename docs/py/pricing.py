@@ -60,7 +60,7 @@ _CATALOGUE = [
     ("blazer-sleeve", "Blazer sleeve shorten", 75, True, True),
     ("refit", "Open and re-stitch, complete refit", 90, True, True),
     ("new-pants", "New pants, stitched to your measurements", 138, True, True),
-    ("new-kurta", "New kurta or top, stitched to your measurements", 67, True, True),
+    ("new-kurta", "New kurta or top, stitched to your measurements", 81, True, True),
 ]
 
 FABRICS = {
