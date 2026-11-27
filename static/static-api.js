@@ -36,7 +36,7 @@
     showNote();
     if (/[?&]reset-demo\b/.test(location.search)) {
       await idb("readwrite", (s) => s.delete("data")).catch(() => {});
-      try { localStorage.removeItem("ss-samples"); } catch { /* fine */ }
+      try { localStorage.removeItem("ss-samples-2"); } catch { /* fine */ }
     }
     await new Promise((ok, fail) => {
       const s = document.createElement("script");
@@ -66,13 +66,13 @@
       const samples = await realFetch(`${BASE}/sample-orders.json`).then((r) => r.json());
       let mine = {};
       try { mine = JSON.parse(new TextDecoder().decode(py.FS.readFile("/data/orders.json"))); } catch { /* none saved yet */ }
-      const seen = (() => { try { return JSON.parse(localStorage.getItem("ss-samples") || "[]"); } catch { return []; } })();
+      const seen = (() => { try { return JSON.parse(localStorage.getItem("ss-samples-2") || "[]"); } catch { return []; } })();
       const fresh = Object.keys(samples).filter((id) => !mine[id] && !seen.includes(id));
       if (fresh.length) {
         fresh.forEach((id) => { mine[id] = samples[id]; });
         py.FS.writeFile("/data/orders.json", JSON.stringify(mine));
         seeded = true;
-        try { localStorage.setItem("ss-samples", JSON.stringify(seen.concat(fresh))); } catch { /* fine */ }
+        try { localStorage.setItem("ss-samples-2", JSON.stringify(seen.concat(fresh))); } catch { /* fine */ }
       }
     } catch { /* the demo works without them */ }
     // ?delete-order=SS-XXXXX removes one order from this browser's demo data.
