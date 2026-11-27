@@ -34,7 +34,10 @@
   let dump = null;
   const ready = (async () => {
     showNote();
-    if (/[?&]reset-demo\b/.test(location.search)) await idb("readwrite", (s) => s.delete("data")).catch(() => {});
+    if (/[?&]reset-demo\b/.test(location.search)) {
+      await idb("readwrite", (s) => s.delete("data")).catch(() => {});
+      try { localStorage.removeItem("ss-samples"); } catch { /* fine */ }
+    }
     await new Promise((ok, fail) => {
       const s = document.createElement("script");
       s.src = `${BASE}/pyodide/pyodide.js`;
@@ -58,6 +61,7 @@
       }
     }
     // Sample orders (from the team's test runs, phone numbers hidden) show up for every visitor, added once if missing.
+    let seeded = false;
     try {
       const samples = await realFetch(`${BASE}/sample-orders.json`).then((r) => r.json());
       let mine = {};
@@ -67,12 +71,24 @@
       if (fresh.length) {
         fresh.forEach((id) => { mine[id] = samples[id]; });
         py.FS.writeFile("/data/orders.json", JSON.stringify(mine));
+        seeded = true;
         try { localStorage.setItem("ss-samples", JSON.stringify(seen.concat(fresh))); } catch { /* fine */ }
       }
     } catch { /* the demo works without them */ }
+    // ?delete-order=SS-XXXXX removes one order from this browser's demo data.
+    const wanted = new URLSearchParams(location.search).get("delete-order");
+    let removed = false;
+    if (wanted) {
+      try {
+        const all = JSON.parse(new TextDecoder().decode(py.FS.readFile("/data/orders.json")));
+        if (all[wanted]) { delete all[wanted]; py.FS.writeFile("/data/orders.json", JSON.stringify(all)); removed = true; }
+      } catch { /* nothing saved here */ }
+    }
     py.runPython("import sys; sys.path.insert(0, '/app'); import static_api");
     handle = py.runPython("static_api.handle");
     dump = py.runPython("static_api.dump");
+    if (removed || seeded) await writeSaved(dump());   // keep what we just added or removed
+    if (removed) history.replaceState(null, "", location.pathname);
     note.remove();
   })();
   ready.catch((err) => { note.textContent = `The demo could not start: ${err.message}`; note.style.background = "#a8341f"; });
