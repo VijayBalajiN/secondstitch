@@ -1,4 +1,5 @@
-data/
+data/*
+!data/orders.json
 .env
 __pycache__/
 *.tmp
