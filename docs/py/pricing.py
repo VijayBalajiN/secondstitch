@@ -35,7 +35,7 @@ _CATALOGUE = [
     ("button", "Button, hook or press-stud (first one)", 5, False, False),
     ("extra-button", "Each extra button or hook on the same garment", 3, False, False),
     ("open-seam", "Open seam repair, up to 10 cm", 10, False, False),
-    ("darn", "Small tear darn or patch, up to 5 cm", 20, False, False),
+    ("darn", "Small tear darn or patch, up to 5 cm", 5, False, False),
     ("elastic", "Elastic or drawstring replace", 20, False, False),
     ("salwar-shorten", "Salwar, pyjama or palazzo length shorten", 20, False, True),
     ("trouser-hem", "Trouser or jeans hem, plain fold", 25, False, True),

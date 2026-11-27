@@ -14,7 +14,7 @@ MONDAY = "2026-11-16"               # off-peak
 
 # Catalogue prices as printed in the Pricing doc: (Standard, Premium)
 DOC_PRICES = {
-    "button": (40, 70), "extra-button": (10, 20), "open-seam": (60, 100), "darn": (100, 170),
+    "button": (40, 70), "extra-button": (10, 20), "open-seam": (60, 100), "darn": (40, 70),
     "elastic": (100, 170), "salwar-shorten": (100, 170), "trouser-hem": (120, 210),
     "kurta-hem": (140, 240), "sleeve-shorten": (140, 240), "side-seams": (140, 240),
     "lace": (180, 310), "saree-fall": (200, 350),
