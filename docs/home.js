@@ -19,7 +19,7 @@ function renderStage() {
     <g class="pin" role="button" tabindex="0" data-s="${i}" aria-pressed="${i === pick.spot}" aria-label="${esc(t("picker.pin", { name: t(s.name), n: i + 1, total: g.spots.length }))}" transform="translate(${s.x} ${s.y})">
       <circle r="24" fill="transparent"/><circle class="halo" r="13"/><circle class="dot" r="12"/><text text-anchor="middle" dy="4">${i + 1}</text>
     </g>`).join("");
-  $("#g-stage").innerHTML = `<svg viewBox="0 0 300 370" role="group" aria-label="${esc(t(g.label))}">${g.art}${pins}</svg>`;
+  $("#g-stage").innerHTML = `<svg viewBox="0 0 300 400" role="group" aria-label="${esc(t(g.label))}"><image href="/secondstitch/img/${g.photo}.jpg" width="300" height="400" preserveAspectRatio="xMidYMid slice"/>${pins}</svg>`;
 }
 
 function renderPanel() {
@@ -76,7 +76,7 @@ function boardRows(list, both) {
     const prices = both
       ? `<b>${plus}${rupees(s.prices.standard)}</b><i>${plus}${rupees(s.prices.premium)}</i>`
       : `<b>${rupees(s.prices.premium)}</b>`;
-    return `<li><span class="nm">${svcThumb(s.id)}<span>${esc(svcName(s.id, s.name))} <small>· ${esc(t("board.min", { n: s.minutes }))}</small></span></span><span class="dots"></span><span class="pr">${prices}</span></li>`;
+    return `<li><span class="nm">${svcThumb(s.id)}<span>${esc(svcName(s.id, s.name))} <small>· ${esc(t("board.min", { n: s.minutes }))}</small></span></span><span class="pr">${prices}</span></li>`;
   }).join("")}</ul>`;
 }
 
