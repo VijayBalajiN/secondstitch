@@ -329,5 +329,118 @@
   ],
   "rating": null,
   "qc_failures": 0
+ },
+ "SS-J6SR6": {
+  "id": "SS-J6SR6",
+  "created_at": "2026-11-27T18:20:04",
+  "source": "web",
+  "customer": {
+   "name": "Riya",
+   "phone": "99XXXXXX77",
+   "counter": "Campus laundry counter"
+  },
+  "quote": {
+   "ok": true,
+   "tier": "premium",
+   "tier_label": "Premium",
+   "speed": "standard",
+   "handover": "counter",
+   "handover_label": "Partner dry cleaner counter",
+   "date": "2026-11-27",
+   "season": {
+    "kind": "normal",
+    "factor": 1.0,
+    "label": "Normal week",
+    "next_normal_date": null
+   },
+   "garments": [
+    {
+     "index": 1,
+     "fabric": "everyday",
+     "fabric_label": "Everyday",
+     "fabric_factor": 1.0,
+     "jobs": [
+      {
+       "id": "new-kurta",
+       "name": "New kurta or top, stitched to your measurements",
+       "qty": 1,
+       "unit": 600,
+       "amount": 600,
+       "fit": true
+      }
+     ],
+     "jobs_total": 600,
+     "fabric_adjustment": 0,
+     "subtotal": 600,
+     "has_fit_job": true
+    }
+   ],
+   "jobs_total": 600,
+   "season_adjustment": 0,
+   "work": 600,
+   "min_order_topup": 0,
+   "express": 0,
+   "handover_fee": 0,
+   "handover_waived": false,
+   "handover_charged": 0,
+   "total": 600,
+   "tailor_earns": 330,
+   "ready": "by Mon 30 Nov (usually Sun 29 Nov)",
+   "ready_by": "2026-11-30",
+   "ready_usual": "2026-11-29"
+  },
+  "garments": [
+   {
+    "label": "kurta",
+    "note": "v-neck short kurta short sleeves \nI will provide the fabric with the delivery partner\ngiving reference kurta for size",
+    "fit": {
+     "method": "none",
+     "label": "No fit mark (redo covers workmanship only)",
+     "value": ""
+    },
+    "photo": null
+   }
+  ],
+  "status": "delivered",
+  "events": [
+   {
+    "status": "confirmed",
+    "label": "Order confirmed",
+    "at": "2026-11-27T18:20:04",
+    "note": ""
+   },
+   {
+    "status": "collected",
+    "label": "Garment collected",
+    "at": "2026-11-27T18:20:14",
+    "note": ""
+   },
+   {
+    "status": "with_tailor",
+    "label": "With tailor",
+    "at": "2026-11-27T18:20:14",
+    "note": ""
+   },
+   {
+    "status": "qc_passed",
+    "label": "Quality checked",
+    "at": "2026-11-27T18:20:15",
+    "note": ""
+   },
+   {
+    "status": "out_for_delivery",
+    "label": "Out for delivery",
+    "at": "2026-11-27T18:20:16",
+    "note": ""
+   },
+   {
+    "status": "delivered",
+    "label": "Delivered",
+    "at": "2026-11-27T18:20:16",
+    "note": ""
+   }
+  ],
+  "rating": null,
+  "qc_failures": 0
  }
 }
