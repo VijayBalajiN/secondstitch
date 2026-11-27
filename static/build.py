@@ -37,6 +37,7 @@ shutil.copytree(HERE / "pyodide", OUT / "pyodide", ignore=shutil.ignore_patterns
 for m in PY_MODULES:
     shutil.copy(WEB / f"{m}.py", OUT / "py" / f"{m}.py")
 shutil.copy(HERE / "static-api.js", OUT / "static-api.js")
+shutil.copy(HERE / "sample-orders.json", OUT / "sample-orders.json")
 
 for f in list(OUT.glob("*.html")) + list(OUT.glob("*.js")) + list(OUT.glob("*.css")):
     if f.name == "static-api.js":

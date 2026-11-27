@@ -57,6 +57,19 @@
         py.FS.writeFile(full, Uint8Array.from(atob(b64), (c) => c.charCodeAt(0)));
       }
     }
+    // Sample orders (from the team's test runs, phone numbers hidden) show up for every visitor, added once if missing.
+    try {
+      const samples = await realFetch(`${BASE}/sample-orders.json`).then((r) => r.json());
+      let mine = {};
+      try { mine = JSON.parse(new TextDecoder().decode(py.FS.readFile("/data/orders.json"))); } catch { /* none saved yet */ }
+      const seen = (() => { try { return JSON.parse(localStorage.getItem("ss-samples") || "[]"); } catch { return []; } })();
+      const fresh = Object.keys(samples).filter((id) => !mine[id] && !seen.includes(id));
+      if (fresh.length) {
+        fresh.forEach((id) => { mine[id] = samples[id]; });
+        py.FS.writeFile("/data/orders.json", JSON.stringify(mine));
+        try { localStorage.setItem("ss-samples", JSON.stringify(seen.concat(fresh))); } catch { /* fine */ }
+      }
+    } catch { /* the demo works without them */ }
     py.runPython("import sys; sys.path.insert(0, '/app'); import static_api");
     handle = py.runPython("static_api.handle");
     dump = py.runPython("static_api.dump");
