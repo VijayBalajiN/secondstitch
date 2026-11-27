@@ -64,7 +64,7 @@ const SVC_IMG = {
   "elastic": "svc-elastic",
   "salwar-shorten": "svc-hem", "trouser-hem": "svc-hem", "jeans-original-hem": "svc-hem", "kurta-hem": "svc-kurta",
   "sleeve-shorten": "svc-blazer", "sleeve-cuff": "svc-blazer", "blazer-sleeve": "svc-blazer", "shoulder": "svc-blazer", "lining": "svc-blazer",
-  "side-seams": "svc-fit", "waist": "svc-fit", "taper": "svc-fit", "refit": "svc-fit", "new-stitch": "tapehoop", "kurta-resize": "svc-kurta",
+  "side-seams": "svc-fit", "waist": "svc-fit", "taper": "svc-fit", "refit": "svc-fit", "new-pants": "trouser-sew", "new-kurta": "svc-kurta", "kurta-resize": "svc-kurta",
   "lace": "svc-lehenga", "lehenga-waist": "svc-lehenga", "flare": "svc-lehenga",
   "saree-fall": "svc-saree", "blouse": "svc-blouse",
   "fly-zip": "svc-zip", "dress-zip": "svc-zip", "jacket-zip": "svc-zip",

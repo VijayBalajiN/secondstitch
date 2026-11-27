@@ -104,7 +104,7 @@ const GROUPS = [
   { key: "kurta", img: "svc-kurta", ids: ["kurta-resize", "side-seams"] },
   { key: "blazer", img: "svc-blazer", ids: ["blazer-sleeve", "sleeve-cuff", "shoulder", "lining", "sleeve-shorten"] },
   { key: "fit", img: "svc-fit", ids: ["waist", "taper", "refit"] },
-  { key: "new", img: "tapehoop", ids: ["new-stitch"] },
+  { key: "new", img: "tapehoop", ids: ["new-pants", "new-kurta"] },
   { key: "mend", img: "svc-mend", ids: ["open-seam", "darn"] },
   { key: "lehenga", img: "svc-lehenga", ids: ["lehenga-waist", "flare", "lace"] },
   { key: "elastic", img: "svc-elastic", ids: ["elastic"] },

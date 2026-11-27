@@ -21,7 +21,7 @@ DOC_PRICES = {
     "jeans-original-hem": (None, 310), "fly-zip": (None, 310), "sleeve-cuff": (None, 350),
     "waist": (None, 350), "dress-zip": (None, 380), "blouse": (None, 380), "lehenga-waist": (None, 380),
     "taper": (None, 450), "kurta-resize": (None, 450), "shoulder": (None, 450), "lining": (None, 450),
-    "jacket-zip": (None, 520), "flare": (None, 520), "blazer-sleeve": (None, 560), "refit": (None, 660), "new-stitch": (None, 1010),
+    "jacket-zip": (None, 520), "flare": (None, 520), "blazer-sleeve": (None, 560), "refit": (None, 660), "new-pants": (None, 1000), "new-kurta": (None, 500),
 }
 
 
@@ -31,8 +31,8 @@ def order(tier, garments, date=THURSDAY, speed="standard", handover="counter"):
 
 
 class CatalogueTest(unittest.TestCase):
-    def test_28_services(self):
-        self.assertEqual(len(pricing.SERVICES), 28)
+    def test_29_services(self):
+        self.assertEqual(len(pricing.SERVICES), 29)
 
     def test_prices_match_doc(self):
         for sid, (std, prem) in DOC_PRICES.items():

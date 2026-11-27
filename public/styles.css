@@ -595,3 +595,7 @@ html[lang="hi"] .ticket .example, html[lang="ta"] .ticket .example { letter-spac
   .header-row { gap: 6px; }
 }
 @media (max-width: 480px) { .nav a.nav-cta { display: none; } }
+
+/* New clothes buttons on the order page */
+.new-clothes { margin: 4px 0 14px; }
+.new-btns { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px; }

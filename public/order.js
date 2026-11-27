@@ -161,14 +161,24 @@ const FIT_ICONS = {
   none: '<circle cx="16" cy="16" r="11"/><path d="M9 23L23 9"/>',
 };
 
+const NEW_IDS = ["new-pants", "new-kurta"];
+
+/** Two buttons for made-to-measure clothes, so nobody has to dig through the fix list for them. */
+function newClothesHtml(g) {
+  const buttons = NEW_IDS.filter((id) => svc(id) && !g.jobs.some((j) => j.id === id)).map((id) => `
+    <button type="button" class="btn btn-ghost btn-small" data-act="add-new" data-new="${id}">+ ${esc(t(id === "new-pants" ? "o.new.pants" : "o.new.kurta"))} · ${rupees(svc(id).prices.premium)}</button>`).join("");
+  return buttons ? `<div class="new-clothes"><span class="field-label">${esc(t("o.newq"))}</span><div class="new-btns">${buttons}</div></div>` : "";
+}
+
 function jobOptions(g) {
   const taken = new Set(g.jobs.map((j) => j.id));
   const hasButton = taken.has("button");
   const opt = (s) => `<option value="${s.id}">${esc(name(s))} — ${s.addon ? "+" : ""}${rupees(priceFor(s))}</option>`;
   const avail = C.services.filter((s) => !taken.has(s.id) && (!s.addon || hasButton));
   return `<option value="">${esc(t("o.addfix"))}</option>
-    <optgroup label="${esc(t("o.grp.quick"))}">${avail.filter((s) => !s.premium_only).map(opt).join("")}</optgroup>
-    <optgroup label="${esc(t("o.grp.prem"))}">${avail.filter((s) => s.premium_only).map(opt).join("")}</optgroup>`;
+    <optgroup label="${esc(t("o.grp.new"))}">${avail.filter((s) => NEW_IDS.includes(s.id)).map(opt).join("")}</optgroup>
+    <optgroup label="${esc(t("o.grp.quick"))}">${avail.filter((s) => !s.premium_only && !NEW_IDS.includes(s.id)).map(opt).join("")}</optgroup>
+    <optgroup label="${esc(t("o.grp.prem"))}">${avail.filter((s) => s.premium_only && !NEW_IDS.includes(s.id)).map(opt).join("")}</optgroup>`;
 }
 
 function garmentHtml(g, i) {
@@ -221,6 +231,7 @@ function garmentHtml(g, i) {
       <div class="field"><span class="field-label">${esc(t("o.fabric"))}</span><div class="segmented">${fabrics}</div></div>
     </div>
     ${jobs ? `<ul class="job-list">${jobs}</ul>` : ""}
+    ${newClothesHtml(g)}
     <label class="field"><select data-f="add-job" aria-label="${esc(t("o.addfix"))}">${jobOptions(g)}</select></label>
     ${fit}
     <label class="field"><span>${esc(t("o.note"))} <span class="muted" style="font-weight:400">${esc(t("o.optional"))}</span></span>
@@ -281,6 +292,7 @@ function onGarmentEvent(e) {
     return;
   }
   if (!act) return;
+  if (act === "add-new") { g.jobs.push({ id: e.target.closest("[data-new]").dataset.new, qty: 1 }); return renderAll(); }
   if (act === "pick-photo") return card.querySelector("[data-f=photo]").click();
   const job = g.jobs.find((j) => j.id === e.target.closest("[data-job]")?.dataset.job);
   if (act === "inc" && job.qty < 20) job.qty++;
